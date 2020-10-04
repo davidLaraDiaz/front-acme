@@ -1,5 +1,5 @@
 
-export interface PropietarioModule {
+export interface ConductorModule {
 
   numero_cedula:number;
   primer_nombre:string;

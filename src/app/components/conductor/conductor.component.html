@@ -1,1 +1,144 @@
-<p>conductor works!</p>
+
+<div class="container text-center">
+    <h2 class="h2 text-info">Conductores</h2>
+
+
+    <button (click)="limpiar()" type="button" class="btn btn-success float-right" 
+        data-toggle="modal" data-target="#myModal">
+        <i class="fa fa-plus"></i>
+        Agregar Conductor
+      </button>
+      <br><br><br>
+      <!-- The Modal -->
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title text-success"> <i class="fa fa-users"></i> Conductor</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                  <form name="myForm">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">#</span>
+                        </div>
+                        <input type="number" [(ngModel)]="condu.numero_cedula"
+                        placeholder="Numero de Cedula" name="numero_cedula" class="form-control">
+                      </div>
+                      <br>
+
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="fa fa-user"></i>
+                          </span>
+                        </div>
+                        <input placeholder="Primer Nombre"
+                         type="text" [(ngModel)]="condu.primer_nombre"
+                         name="primer_nombre" class="form-control" required>
+                      </div>
+                      <br>
+
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="fa fa-user"></i>
+                          </span>
+                        </div>
+                        <input placeholder="Segundo Nombre" type="text" [(ngModel)]="condu.segundo_nombre" name="segundo_nombre" class="form-control" required>
+                      </div>
+                      <br>
+
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="fa fa-user"></i>
+                          </span>
+                        </div>
+                        <input placeholder="Apellidos" type="text" [(ngModel)]="condu.apellidos" name="apellidos" class="form-control" required>
+                      </div>
+                      <br>
+
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                          </span>
+                        </div>
+                        <input placeholder="Direccion" type="text" [(ngModel)]="condu.direccion" name="direccion" class="form-control" required>
+                      </div>
+                      <br>
+
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                          </span>
+                        </div>
+                        <input placeholder="Telefono" type="text" [(ngModel)]="condu.telefono" name="telefono" class="form-control" required>
+                      </div>
+                      <br>
+
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="fa fa-globe" aria-hidden="true"></i>
+                          </span>
+                        </div>
+                        <input placeholder="Ciudad" type="text" [(ngModel)]="condu.ciudad" name="ciudad" class="form-control" required>
+                      </div>
+                      <br>
+
+                      <input (click)="guardar()"  data-dismiss="modal" type="submit" value="Guardar" class="btn btn-outline-success btn-lg form-control">
+                      <br>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    <table class="table">
+        <thead>
+            <th>Numero de Cedula</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Direccion</th>
+            <th>Telefono</th>
+            <th>Ciudad</th>
+            <th>Acción</th>
+        </thead>
+
+        <tr *ngFor="let conductor of conductores">
+            <td>{{conductor.numero_cedula}}</td>
+            <td>{{conductor.primer_nombre+" "+conductor.segundo_nombre}}</td>
+            <td>{{conductor.apellidos}}</td>
+            <td>{{conductor.direccion}}</td>
+            <td>{{conductor.telefono}}</td>
+            <td>{{conductor.ciudad}}</td>
+            <td class="align-middle">
+                <div class="row">
+                    <span class="col-1"></span>
+                    <button (click)="buscarConductor(conductor.numero_cedula)" 
+                        data-toggle="modal" data-target="#myModal" 
+                        class="btn btn-outline-warning btn-sm col-4 m-1">
+                        <i class="fa fa-edit">
+                        </i>
+                    </button>
+                    <button (click)="eliminarConductor(conductor.numero_cedula)" 
+                        class="btn btn-outline-danger btn-sm col-4 m-1">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </div>
+            </td>
+        </tr>
+
+    </table>
+</div>
+
+

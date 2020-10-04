@@ -102,7 +102,7 @@ export class VehiculoComponent implements OnInit {
   }
 
   nuevo(){
-    alert(JSON.stringify(this.vehi));
+    //alert(JSON.stringify(this.vehi));
     this.vehiculoService.saveVehiculo(this.vehi)
       .subscribe(
         (res) =>{
