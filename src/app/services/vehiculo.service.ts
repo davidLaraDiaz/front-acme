@@ -11,8 +11,8 @@ import { VehiculoModule } from "../models/vehiculo.module";
 export class VehiculoService {
 
 
-  //url ="https://back-acme.herokuapp.com/api/vehiculo";
-  url="http://127.0.0.1:8000/api/vehiculo";
+  url ="https://back-acme.herokuapp.com/api/vehiculo";
+  //url="http://127.0.0.1:8000/api/vehiculo";
 
   constructor(private http:HttpClient) {
 

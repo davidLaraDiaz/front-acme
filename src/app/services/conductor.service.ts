@@ -11,8 +11,8 @@ import { ConductorModule } from "../models/conductor.module";
 export class ConductorService {
 
 
-  //url ="https://back-acme.herokuapp.com/api/conductor";
-  url="http://127.0.0.1:8000/api/conductor";
+  url ="https://back-acme.herokuapp.com/api/conductor";
+  //url="http://127.0.0.1:8000/api/conductor";
 
   constructor(private http:HttpClient) {
 

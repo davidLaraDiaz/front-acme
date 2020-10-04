@@ -11,8 +11,8 @@ import { PropietarioModule } from "../models/propietario.module";
 export class PropietarioService {
 
 
-  //url ="https://back-acme.herokuapp.com/api/propietario";
-  url="http://127.0.0.1:8000/api/propietario";
+  url ="https://back-acme.herokuapp.com/api/propietario";
+  //url="http://127.0.0.1:8000/api/propietario";
 
   constructor(private http:HttpClient) {
 
