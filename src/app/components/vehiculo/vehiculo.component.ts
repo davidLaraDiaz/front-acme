@@ -62,6 +62,14 @@ export class VehiculoComponent implements OnInit {
       );
   }
 
+  getPropietario(id){
+    for (let cond of this.propietarios){
+      if(cond.numero_cedula == id){
+        return cond.numero_cedula+" "+cond.primer_nombre+" "+cond.apellidos;
+      }
+    }
+  }
+
 
   
   buscarVehiculo(placa){

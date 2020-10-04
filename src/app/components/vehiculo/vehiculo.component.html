@@ -98,6 +98,7 @@
             <th>Marca</th>
             <th>Color</th>
             <th>Tipo</th>
+            <th>Propietario</th>
             <th>Acción</th>
         </thead>
 
@@ -106,6 +107,7 @@
             <td>{{vehiculo.marca}}</td>
             <td><input type="color" [value]="vehiculo.color" readonly></td>
             <td>{{vehiculo.tipo_vehiculo}}</td>
+            <td>{{ getPropietario(vehiculo.numero_cedula) }}</td>
             <td class="align-middle">
                 <div class="row">
                     <span class="col-1"></span>
