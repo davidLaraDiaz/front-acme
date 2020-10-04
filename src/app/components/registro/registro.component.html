@@ -1,1 +1,90 @@
-<p>registro works!</p>
+
+<div class="container text-center">
+    <h2 class="h2 text-info">Registros</h2>
+
+    <button (click)="limpiar()" type="button" class="btn btn-success float-right" 
+        data-toggle="modal" data-target="#myModal">
+        <i class="fa fa-plus"></i>
+        Agregar Registro
+      </button>
+      <br><br><br>
+      <!-- The Modal -->
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title text-success"> <i class="fa fa-address-card-o"></i> Registro</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                  <form name="myForm">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">#</span>
+                        </div>
+                        <input placeholder="Id" type="text" [(ngModel)]="registro.id"
+                         name="id" class="form-control" readonly>
+                      </div>
+                      <br>
+
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="fa fa-car"></i>
+                          </span>
+                        </div>
+                            <select name="placa" [(ngModel)]="registro.placa" class="form-control" required>
+                                <option [value]="item.placa" *ngFor="let item of vehiculos">
+                                    {{item.placa+" - "+item.marca}}
+                                </option>
+                            </select>
+                      </div>
+                      <br>
+
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="fa fa-user"></i>
+                          </span>
+                        </div>
+                            <select name="numero_cedula" 
+                            [(ngModel)]="registro.numero_cedula" class="form-control required">
+                                <option [value]="item.numero_cedula" *ngFor="let item of conductores">
+                                    {{item.numero_cedula+" - "+item.primer_nombre+" "+item.apellidos}}
+                                </option>
+                            </select>
+                      </div>
+                      <br>
+
+                      
+
+                      <input (click)="guardar()"  data-dismiss="modal" type="submit" value="Guardar" class="btn btn-outline-success btn-lg form-control">
+                      <br>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <table class="table">
+        <thead>
+            <th>id</th>
+            <th>Fecha</th>
+            <th>Vehiculo</th>
+            <th>Conductor</th>
+        </thead>
+
+        <tr *ngFor="let registro of registros">
+            <td>{{registro.id}}</td>
+            <td>{{registro.fecha}}</td>
+            <td>{{ getVehiculo(registro.placa)}}</td>
+            <td>{{ getConductor(registro.numero_cedula) }}</td>
+        </tr>
+
+    </table>
+
+</div>
