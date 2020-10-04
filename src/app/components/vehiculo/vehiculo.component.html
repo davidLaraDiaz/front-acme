@@ -1,1 +1,129 @@
-<p>vehiculo works!</p>
+
+<div class="container text-center">
+    <h2 class="h2 text-info">Vehiculos</h2>
+
+
+    <button (click)="limpiar()" type="button" class="btn btn-success float-right" 
+        data-toggle="modal" data-target="#myModal">
+        <i class="fa fa-plus"></i>
+        Agregar Vehiculo
+      </button>
+      <br><br><br>
+      <!-- The Modal -->
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title text-success"> <i class="fa fa-address-card-o"></i> vehiculo</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                  <form name="myForm">
+
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="fa fa-car"></i>
+                          </span>
+                        </div>
+                            <select name="tipo_vehiculo" [(ngModel)]="vehi.tipo_vehiculo" class="form-control">
+                                <option>Particular</option>
+                                <option>Privado</option>
+                            </select>
+                      </div>
+                      <br>
+
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">#</span>
+                        </div>
+                        <input placeholder="Placa" type="text" [(ngModel)]="vehi.placa" name="placa" class="form-control" required>
+                      </div>
+                      
+                      <br>
+
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="fa fa-gear"></i>
+                          </span>
+                        </div>
+                        <input placeholder="Marca" type="text" [(ngModel)]="vehi.marca" name="marca" class="form-control" required>
+                      </div>
+                      <br>
+
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="fa fa-tint"></i>
+                          </span>
+                        </div>
+                        <input placeholder="Color" type="color" [(ngModel)]="vehi.color" name="color" class="form-control" required>
+                      </div>
+                      <br>
+
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="fa fa-address-card-o"></i>
+                          </span>
+                        </div>
+                            <select name="numero_cedula" [(ngModel)]="vehi.numero_cedula" class="form-control">
+                                <option [value]="item.numero_cedula" *ngFor="let item of propietarios">
+                                    {{item.numero_cedula+" - "+item.primer_nombre+" "+item.apellidos}}
+                                </option>
+                            </select>
+                      </div>
+                      <br>
+
+                      
+
+                      <input (click)="guardar()"  data-dismiss="modal" type="submit" value="Guardar" class="btn btn-outline-success btn-lg form-control">
+                      <br>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    <table class="table">
+        <thead>
+            <th>Placa</th>
+            <th>Marca</th>
+            <th>Color</th>
+            <th>Tipo</th>
+            <th>Acción</th>
+        </thead>
+
+        <tr *ngFor="let vehiculo of vehiculos">
+            <td>{{vehiculo.placa}}</td>
+            <td>{{vehiculo.marca}}</td>
+            <td><input type="color" [value]="vehiculo.color" readonly></td>
+            <td>{{vehiculo.tipo_vehiculo}}</td>
+            <td class="align-middle">
+                <div class="row">
+                    <span class="col-1"></span>
+                    <button (click)="buscarVehiculo(vehiculo.placa)" 
+                        data-toggle="modal" data-target="#myModal" 
+                        class="btn btn-outline-warning btn-sm col-4 m-1">
+                        <i class="fa fa-edit">
+                        </i>
+                    </button>
+                    <button (click)="eliminarVehiculo(vehiculo.placa)" 
+                        class="btn btn-outline-danger btn-sm col-4 m-1">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </div>
+            </td>
+        </tr>
+
+    </table>
+</div>
+
+

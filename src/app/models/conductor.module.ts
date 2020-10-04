@@ -8,6 +8,8 @@ export interface PropietarioModule {
   direccion:string;
   telefono:string;
   ciudad:string;
+  
+
 
 
  }

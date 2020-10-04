@@ -15,6 +15,7 @@ import { PropietarioComponent } from './components/propietario/propietario.compo
 import { VehiculoComponent } from './components/vehiculo/vehiculo.component';
 import { ConductorComponent } from './components/conductor/conductor.component';
 import { HomeComponent } from './components/plantilla/home/home.component';
+import { VehiculoService } from './services/vehiculo.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { HomeComponent } from './components/plantilla/home/home.component';
     HttpClientModule
   ],
   providers: [
-    PropietarioService
+    PropietarioService,
+    VehiculoService
   ],
   bootstrap: [AppComponent]
 })
