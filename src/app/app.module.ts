@@ -1,5 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
+import { PropietarioService } from './services/propietario.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +14,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { PropietarioComponent } from './components/propietario/propietario.component';
 import { VehiculoComponent } from './components/vehiculo/vehiculo.component';
 import { ConductorComponent } from './components/conductor/conductor.component';
+import { HomeComponent } from './components/plantilla/home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +25,18 @@ import { ConductorComponent } from './components/conductor/conductor.component';
     RegistroComponent,
     PropietarioComponent,
     VehiculoComponent,
-    ConductorComponent
+    ConductorComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    PropietarioService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
